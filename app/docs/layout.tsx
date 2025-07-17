@@ -1,6 +1,6 @@
 import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 import type { ReactNode } from 'react';
-import { baseOptions } from '@/app/layout.config';
+import { baseOptions, linkItems } from '@/app/layout.config';
 import { source } from '@/lib/source';
 import { LargeSearchToggle } from 'fumadocs-ui/components/layout/search-toggle';
 import { ChatButton } from '@/components/chat-button';
@@ -13,6 +13,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         children: source.pageTree.children,
       }}
       {...baseOptions}
+      links={linkItems.filter((item) => item.type === 'icon')}
       searchToggle={{
         components: {
           lg: (
