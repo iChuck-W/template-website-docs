@@ -1,0 +1,213 @@
+---
+title: Product Page Template
+description: Template for product documentation.
+icon: NotepadTextDashed
+---
+
+## 产品文档
+
+### 在线手册
+
+```mdx
+[Product Environmental Report](https://www.apple.com/environment/pdf/products/iphone/iPhone_16_and_iPhone_16_Plus_PER_Sept2024.pdf)
+```
+
+[Product Environmental Report](https://www.apple.com/environment/pdf/products/iphone/iPhone_16_and_iPhone_16_Plus_PER_Sept2024.pdf)
+
+### 在线图片
+
+```mdx
+![iPhone 16](https://www.apple.com.cn/iphone-16/images/overview/product-viewer/iphone/all_colors__flhn5cmb1t26_large_2x.jpg)
+```
+
+![iPhone 16](https://www.apple.com.cn/iphone-16/images/overview/product-viewer/iphone/all_colors__flhn5cmb1t26_large_2x.jpg)
+
+### 在线视频
+
+```mdx
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/GDlkCkcIqTs"
+  title="iPhone 16"
+  frameBorder="0"
+  allowFullScreen
+></iframe>
+```
+
+<iframe
+  width="100%"
+  height="400"
+  src="https://www.youtube.com/embed/GDlkCkcIqTs"
+  title="iPhone 16"
+  frameBorder="0"
+  allowFullScreen
+></iframe>
+
+### 技术参数表
+
+- 购买 iPhone 16 和 iPhone 16 Plus - Apple (中国大陆)[^1]
+
+```mdx
+购买 iPhone 16 和 iPhone 16 Plus - Apple (中国大陆)[^1]
+```
+
+```mdx
+| 规格         | iPhone 16 Pro                                    | iPhone 16                      |
+| :----------- | :----------------------------------------------- | :----------------------------- |
+| **屏幕尺寸** | 6.9 英寸或 6.3 英寸                              | 6.7 英寸或 6.1 英寸            |
+| **材质**     | 钛金属搭配亚光质感玻璃背板                       | 铝金属搭配融色玻璃背板         |
+| **芯片**     | A18 Pro 芯片                                     | A18 芯片                       |
+| **摄像头**   | 三摄系统                                         | 双摄系统                       |
+| **存储**     | 128GB/256GB/512GB/1TB                            | 128GB/256GB/512GB              |
+| **电池续航** | 最长 33 小时视频播放                             | 最长 27 小时视频播放           |
+| **颜色**     | 原色钛金属、白色钛金属、黑色钛金属、沙漠色钛金属 | 黑色、白色、粉色、青色、超蓝色 |
+```
+
+| 规格         | iPhone 16 Pro                                    | iPhone 16                      |
+| :----------- | :----------------------------------------------- | :----------------------------- |
+| **屏幕尺寸** | 6.9 英寸或 6.3 英寸                              | 6.7 英寸或 6.1 英寸            |
+| **材质**     | 钛金属搭配亚光质感玻璃背板                       | 铝金属搭配融色玻璃背板         |
+| **芯片**     | A18 Pro 芯片                                     | A18 芯片                       |
+| **摄像头**   | 三摄系统                                         | 双摄系统                       |
+| **存储**     | 128GB/256GB/512GB/1TB                            | 128GB/256GB/512GB              |
+| **电池续航** | 最长 33 小时视频播放                             | 最长 27 小时视频播放           |
+| **颜色**     | 原色钛金属、白色钛金属、黑色钛金属、沙漠色钛金属 | 黑色、白色、粉色、青色、超蓝色 |
+
+## MDX Introduction
+
+### Text Blocks
+
+1. **Bold**
+2. _Italic_
+3. ~~Strikethrough~~
+
+- **Bold**
+- _Italic_
+- ~~Strikethrough~~
+
+> Quote
+
+### Cards
+
+```mdx
+import { HomeIcon } from 'lucide-react';
+
+<Cards>
+  <Card icon={<HomeIcon />} href="/" title="Home">
+    You can include icons too.
+  </Card>
+  <Card
+    href="https://fumadocs.dev/docs/ui/markdown"
+    title="Markdown | Fumadocs"
+  >
+    Learn more about Markdown
+  </Card>
+  <Card title="What is MDX? | MDX" href="https://mdxjs.com/what-is-mdx">
+    Learn more about 'MDX'.
+  </Card>
+  <Card
+    title="GitHub Flavored Markdown Spec"
+    href="https://github.github.com/gfm/"
+  >
+    Learn more about 'GitHub Flavored Markdown'.
+  </Card>
+</Cards>
+```
+
+import { HomeIcon } from 'lucide-react';
+
+<Cards>
+  <Card icon={<HomeIcon />} href="/" title="Home">
+    You can include icons too.
+  </Card>
+  <Card
+    href="https://fumadocs.dev/docs/ui/markdown"
+    title="Markdown | Fumadocs"
+  >
+    Learn more about Markdown
+  </Card>
+  <Card title="What is MDX? | MDX" href="https://mdxjs.com/what-is-mdx">
+    Learn more about 'MDX'.
+  </Card>
+  <Card
+    title="GitHub Flavored Markdown Spec"
+    href="https://github.github.com/gfm/"
+  >
+    Learn more about 'GitHub Flavored Markdown'.
+  </Card>
+</Cards>
+
+### Callouts
+
+```mdx
+<Callout>Hello World</Callout>
+
+<Callout title="Title">Hello World</Callout>
+
+<Callout title="Title" type="error">
+  Hello World
+</Callout>
+```
+
+<Callout>Hello World</Callout>
+
+<Callout title="Title">Hello World</Callout>
+
+<Callout title="Title" type="error">
+  Hello World
+</Callout>
+
+### Mermaid
+
+<Mermaid
+  chart="
+graph TD;
+subgraph AA [Consumers]
+A[Mobile app];
+B[Web app];
+C[Node.js client];
+end
+subgraph BB [Services]
+E[REST API];
+F[GraphQL API];
+G[SOAP API];
+end
+Z[GraphQL API];
+A --> Z;
+B --> Z;
+C --> Z;
+Z --> E;
+Z --> F;
+Z --> G;"
+/>
+
+### Tab Groups
+
+````mdx
+```ts tab="Tab 1"
+console.log('A');
+```
+
+```ts tab="Tab 2"
+console.log('B');
+```
+````
+
+```ts tab="Tab 1"
+console.log('A');
+```
+
+```ts tab="Tab 2"
+console.log('B');
+```
+
+## Licence
+
+[MIT](https://github.com/fuma-nama/fumadocs/blob/dev/LICENSE) © [fumadocs](https://fumadocs.dev/)
+
+```mdx
+[MIT](https://github.com/fuma-nama/fumadocs/blob/dev/LICENSE) © [fumadocs](https://fumadocs.dev/)
+```
+
+[^1]: [购买 iPhone 16 和 iPhone 16 Plus - Apple (中国大陆)](https://www.apple.com.cn/shop/buy-iphone/iphone-16)
