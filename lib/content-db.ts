@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 
-// 单条文档结构，需与 generate-content-db.mjs 输出一致
+// Single document structure, must match generate-content-db.mjs output
 export interface ContentItem {
   id: string;
   title: string;
@@ -16,7 +16,7 @@ export interface ContentItem {
 let cached: ContentItem[] | null = null;
 
 /**
- * 读取并缓存 JSON 数据库
+ * Read and cache JSON database
  */
 export async function loadContentDB(): Promise<ContentItem[]> {
   if (cached) return cached;

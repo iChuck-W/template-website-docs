@@ -6,22 +6,22 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const projectRoot = join(__dirname, '..');
 
-// 处理 MDX 内容，移除不必要的组件和格式化文本
+// Process MDX content, remove unnecessary components and formatted text
 function processMdxContent(content) {
   return (
     content
-      // 移除 import 语句
+      // Remove import statements
       .replace(/^import.*?;\n/gm, '')
-      // 移除 JSX 组件标签
+      // Remove JSX component tags
       .replace(/<([A-Z][a-zA-Z]*|[a-z]+(\s+[^>]*)?)>/g, '')
       .replace(/<\/[^>]+>/g, '')
-      // 移除多余的空行
+      // Remove extra empty lines
       .replace(/\n{3,}/g, '\n\n')
       .trim()
   );
 }
 
-// 从文件名生成标题
+// Generate title from filename
 function generateTitle(filename) {
   return filename
     .replace('.mdx', '')
@@ -31,7 +31,7 @@ function generateTitle(filename) {
     .join(' ');
 }
 
-// 解析 frontmatter
+// Parse frontmatter
 function parseFrontmatter(content) {
   const match = content.match(/^---\n([\s\S]*?)\n---/);
   if (!match) return {};
@@ -50,7 +50,7 @@ function parseFrontmatter(content) {
   return frontmatter;
 }
 
-// 分离 frontmatter 和内容
+// Separate frontmatter and content
 function separateMdxContent(content) {
   const match = content.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
   if (!match) return { frontmatter: {}, content };
@@ -61,7 +61,7 @@ function separateMdxContent(content) {
   };
 }
 
-// 读取 MDX 文件内容
+// Read MDX file content
 async function readMdxContent(filePath) {
   try {
     const content = await fs.readFile(filePath, 'utf-8');
@@ -94,7 +94,7 @@ async function generateContentDB() {
           const title = frontmatter.title || generateTitle(file);
           const description = frontmatter.description || '';
 
-          // 提取关键词
+          // Extract keywords
           const keywords = new Set(
             [
               title,
@@ -113,21 +113,21 @@ async function generateContentDB() {
             description,
             path: `documentation/${file}`,
             content: processedContent,
-            frontmatter, // 保留原始 frontmatter
+            frontmatter,
             keywords: Array.from(keywords),
             lastModified: new Date().toISOString(),
           };
         }),
     );
 
-    // 过滤掉处理失败的文件
+    // Filter out failed processing files
     const validContent = contentDB.filter((item) => item !== null);
 
-    // 确保 public/data 目录存在
+    // Ensure public/data directory exists
     const dataDir = join(projectRoot, 'public', 'data');
     await fs.mkdir(dataDir, { recursive: true });
 
-    // 写入 JSON 文件
+    // Write JSON file
     const dbPath = join(dataDir, 'content-db.json');
     await fs.writeFile(dbPath, JSON.stringify(validContent, null, 2), {
       encoding: 'utf8',
@@ -136,7 +136,7 @@ async function generateContentDB() {
     console.log(`成功生成内容数据库，共 ${validContent.length} 个文件`);
     console.log(`数据库文件位置: ${dbPath}`);
 
-    // 验证生成的 JSON 文件
+    // Verify generated JSON file
     const verification = JSON.parse(await fs.readFile(dbPath, 'utf8'));
     console.log('数据库验证成功，内容结构完整');
     console.log('示例条目:', JSON.stringify(verification[0], null, 2));

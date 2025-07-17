@@ -7,12 +7,12 @@ import { stopwords as englishStopwords } from '@orama/stopwords/english';
 // https://docs.orama.com/open-source/supported-languages
 const mixedTokenizer = createTokenizer({
   language: 'mandarin',
-  // 合并中英文停用词
+  // Merge Chinese and English stop words
   stopWords: [...mandarinStopwords, ...englishStopwords],
 });
 
 export const { GET } = createFromSource(source, {
-  // 使用自定义中文分词器，同时支持中英文搜索
+  // Use custom tokenizer to support both Chinese and English
   components: {
     tokenizer: mixedTokenizer,
   },

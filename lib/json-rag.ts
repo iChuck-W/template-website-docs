@@ -6,22 +6,22 @@ export interface SearchSection {
 }
 
 /**
- * 简单关键字检索，可后续替换为向量检索
+ * Simple keyword search, can be replaced with vector search later
  */
-// 提取关键词（中英混合）
+// Extract keywords (mixed Chinese and English)
 function extractKeywords(text: string): string[] {
   const keywords: string[] = [];
   const lower = text.toLowerCase();
-  // 英文单词
+  // English words
   const english = lower.match(/[a-z0-9]+/g) || [];
   for (const token of english) {
     if (token.length > 1) keywords.push(token);
-    // 进一步拆分字母与数字组合，如 iphone16 => iphone + 16
+    // Further split letter and number combinations, e.g. iphone16 => iphone + 16
     const alpha = token.match(/[a-z]+/g) || [];
     const nums = token.match(/[0-9]+/g) || [];
     keywords.push(...alpha, ...nums);
   }
-  // 中文词（简单按连续字符）
+  // Chinese words (simple consecutive characters)
   const chinese = text.match(/[\u4e00-\u9fa5]+/g) || [];
   keywords.push(...chinese);
   return Array.from(new Set(keywords));

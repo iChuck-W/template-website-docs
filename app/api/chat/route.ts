@@ -16,7 +16,7 @@ function generateUUID(): string {
 }
 
 const systemPromptTemplate = `
-你是一个专业的文档助手，专门帮助用户理解和使用项目文档。
+你是一个专业的文档助手，专门帮助用户理解和使用产品文档。
 
 ## 工作原则：
 1. 优先基于下面提供的文档内容回答问题
@@ -44,13 +44,13 @@ export async function POST(request: Request) {
       });
     }
 
-    // 获取最后一条用户消息作为检索查询
+    // Get the last user message as the search query
     const lastMessage = messages[messages.length - 1];
     const userQuery = lastMessage?.role === 'user' ? lastMessage.content : '';
 
     console.log('🔍 Starting RAG retrieval for query:', userQuery);
 
-    // 使用 JSON RAG 检索相关文档
+    // Use JSON RAG to retrieve relevant documents
     let documentContext = '暂无相关文档内容。';
     if (userQuery && userQuery.trim().length > 0) {
       try {
@@ -67,7 +67,7 @@ export async function POST(request: Request) {
       }
     }
 
-    // 构建增强的系统提示词
+    // Build enhanced system prompt
     const enhancedSystemPrompt = systemPromptTemplate.replace(
       '{context}',
       documentContext,
