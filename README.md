@@ -44,16 +44,13 @@ resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 - [Fumadocs](https://fumadocs.vercel.app) - learn about Fumadocs
 
-## New Features
-
 <a href="https://template-website-docs.vercel.app/docs/documentation/template_product_page">
   <img alt="Product Page Template" src="public/Example.jpg">
-  <h1 align="center">Product Page Template</h1>
+  <h2 align="center">New Features</h2>
 </a>
 
 - Data Persistence
-  - The model responses to the user's query based on the content of the product page.
-  - Streamlined process, site owners only need to update document content.
+  - The model responses to the user's query based on the content of the product page
+  - Streamlined process, site owners only need to update document content
 - [AI SDK](https://sdk.vercel.ai/docs)
-  - Supports DeepSeek, OpenAI, and other model providers.
-  - 
+  - Supports DeepSeek, OpenAI, and other model providers
