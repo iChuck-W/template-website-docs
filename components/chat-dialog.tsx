@@ -82,10 +82,9 @@ export function ChatDialog({ isOpen, onClose }: ChatDialogProps) {
   const clearHistory = () => {
     if (!sessionId) return;
 
-    // Stop any ongoing streaming response
-    if (isLoading) {
-      stop();
-    }
+    // Always stop any ongoing streaming response, regardless of isLoading state
+    // This ensures we stop even if the state hasn't updated yet
+    stop();
 
     // Clear messages immediately
     setMessages([]);

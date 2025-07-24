@@ -10,8 +10,7 @@
     "lint": "eslint .",
     "lint:prettier": "prettier --check .",
     "format": "prettier --write .",
-    "types:check": "tsc --noEmit",
-    "generate-db": "node scripts/generate-content-db.mjs"
+    "types:check": "tsc --noEmit"
   },
   "dependencies": {
     "@ai-sdk/deepseek": "^0.2.15",

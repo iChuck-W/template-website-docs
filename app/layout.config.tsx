@@ -10,7 +10,6 @@ import { type LinkItemType } from 'fumadocs-ui/layouts/docs';
  */
 // see https://fumadocs.dev/docs/ui/navigation/links
 
-
 export const linkItems: LinkItemType[] = [
   {
     type: 'icon',
